@@ -2,7 +2,7 @@
 FROM nginx:latest
 
 # Step 2: Copy the compiled React app from the current directory to Nginx's default directory
-COPY . /usr/share/nginx/html
+COPY static/ /usr/share/nginx/html
 
 # Step 3: Expose port 80
 EXPOSE 80
