@@ -1,11 +1,17 @@
-# Step 1: Use an Nginx image to serve your React app
+# Use the official Nginx image as the base image
 FROM nginx:latest
 
-# Step 2: Copy the compiled React app from the current directory to Nginx's default directory
-COPY . /usr/share/nginx/html
+# Set working directory in the container
+WORKDIR /usr/share/nginx/html
 
-# Step 3: Expose port 80
+# Remove default nginx content
+RUN rm -rf ./*
+
+# Copy application files to Nginx's HTML directory
+COPY build/ /usr/share/nginx/html
+
+# Expose port 80 to make the application accessible
 EXPOSE 80
 
-# Step 4: Start the Nginx server
+# Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]
