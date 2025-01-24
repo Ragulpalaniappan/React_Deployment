@@ -1,1 +1,1 @@
-This is a React Application
+This is a React Application.
